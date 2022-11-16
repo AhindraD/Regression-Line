@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TrendLine(props) {
+function Regression(props) {
     function sortNumber(a, b) {
         return a - b
     }
@@ -40,25 +40,25 @@ function TrendLine(props) {
     let y_coords = props.data.map(n => {
         return n[1]
     })
-    const trendline = linearRegression(y_coords, x_coords)
+    const Regression = linearRegression(y_coords, x_coords)
 
     // Lowest and highest x coordinates to draw a plot line
     const lowest_x = x_coords.sort(sortNumber)[0]
     const hightest_x = x_coords.sort(sortNumber)[x_coords.length - 1]
-    const trendline_points = [
-        [lowest_x, trendline(lowest_x)],
-        [hightest_x, trendline(hightest_x)]
+    const Regression_points = [
+        [lowest_x, Regression(lowest_x)],
+        [hightest_x, Regression(hightest_x)]
     ]
 
     return (
         <line
-            x1={props.scale.x(trendline_points[0][0])}
-            y1={props.scale.y(trendline_points[0][1])}
-            x2={props.scale.x(trendline_points[1][0])}
-            y2={props.scale.y(trendline_points[1][1])}
-            style={{ stroke: "black", strokeWidth: "2" }}
+            x1={props.scale.x(Regression_points[0][0])}
+            y1={props.scale.y(Regression_points[0][1])}
+            x2={props.scale.x(Regression_points[1][0])}
+            y2={props.scale.y(Regression_points[1][1])}
+            style={{ stroke: "red", strokeWidth: "2" }}
         />
     )
 }
 
-export default TrendLine
+export default Regression;

@@ -5,8 +5,8 @@ function RenderCircles(props) {
         <circle
             cx={props.scale.x(coords[0])}
             cy={props.scale.y(coords[1])}
-            r="8"
-            style={{ fill: "rgba(255, 118, 158, .9)" }}
+            r="7"
+            style={{ fill: "rgba(5, 118, 158, .8)" }}
             key={i}
         />
     ))
